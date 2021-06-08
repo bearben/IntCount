@@ -7,9 +7,13 @@ IntCount relies on barvinok and GLPK. To build barvinok, it requires m4,
 GMP and ntl. The dependencies are in the folder "utils/".
 
 To compile IntCount with barvinok and their dependencies, simply type:
+
 > sudo sh build_utils.sh
+
 > sudo sh build_barvinok.sh
+
 > make static
+
 Note: it may take a few minutes to run two build shell scripts.
 
 And test IntCount:
