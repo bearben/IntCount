@@ -17,12 +17,19 @@ To compile IntCount with barvinok and their dependencies, simply type:
 Note: it may take a few minutes to run two build shell scripts.
 
 And test IntCount:
+
 > ./IntCount test/5_1_5.in
+
 > ./IntCount test/10_1_10.in
+
 > ./IntCount test/15_1_15.in
+
 > ./IntCount test/5_5_3.in
+
 > ./IntCount test/10_10_3.in
+
 > ./IntCount test/15_15_3.in
+
 Note: the runtimes of test cases range from seconds to ten minutes.
 
 
