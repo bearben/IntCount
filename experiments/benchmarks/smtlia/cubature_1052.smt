@@ -1,0 +1,54 @@
+; output/00001526.smt: generated with canalyze.
+; (2(U32) < $1) Assumption: false
+(declare-const $1 Int)
+(assert (and (< 0 $1) (< $1 4294967295)))
+(assert (not (< 2 $1)))
+; (3(U32) < $1) Assumption: false
+(assert (not (< 3 $1)))
+; $32 Assumption: false
+(declare-const $32 Int)
+(assert (and (< (- 2147483648) $32) (< $32 2147483647)))
+(assert (= $32 0))
+; $31 Assumption: false
+(declare-const $31 Int)
+(assert (and (< (- 2147483648) $31) (< $31 2147483647)))
+(assert (= $31 0))
+; $30 Assumption: false
+(declare-const $30 Int)
+(assert (and (< (- 2147483648) $30) (< $30 2147483647)))
+(assert (= $30 0))
+; $29 Assumption: false
+(declare-const $29 Int)
+(assert (and (< (- 2147483648) $29) (< $29 2147483647)))
+(assert (= $29 0))
+; (($cast: long $7$ - 8(S64)) >= 8(S64)) Assumption: true
+(declare-const $7 Int)
+(assert (and (< 0 $7) (< $7 18446744073709551615)))
+(assert (>= (- $7 8) 8))
+; (($cast: long $7$ - 0(S64)) >= 8(S64)) Assumption: true
+(assert (>= (- $7 0) 8))
+; $6 Assumption: true
+(declare-const $6 Int)
+(assert (and (< (- 9223372036854775808) $6) (< $6 9223372036854775807)))
+(assert (not (= $6 0)))
+; $28 Assumption: false
+(declare-const $28 Int)
+(assert (and (< (- 2147483648) $28) (< $28 2147483647)))
+(assert (= $28 0))
+; (($cast: long $9$ - 8(S64)) >= 8(S64)) Assumption: true
+(declare-const $9 Int)
+(assert (and (< 0 $9) (< $9 18446744073709551615)))
+(assert (>= (- $9 8) 8))
+; (($cast: long $9$ - 0(S64)) >= 8(S64)) Assumption: true
+(assert (>= (- $9 0) 8))
+; $8 Assumption: true
+(declare-const $8 Int)
+(assert (and (< (- 9223372036854775808) $8) (< $8 9223372036854775807)))
+(assert (not (= $8 0)))
+; (1(U32) < $1) Assumption: true
+(assert (< 1 $1))
+; ($cast: unsigned int $0$ == 1(U32)) Assumption: true
+(declare-const $0 Int)
+(assert (and (< 0 $0) (< $0 4294967295)))
+(assert (= $0 1))
+(check-sat)

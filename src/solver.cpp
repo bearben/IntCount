@@ -272,11 +272,6 @@ int Solver::Solve(Polytope *P)
 				// print constraints into tmp.in
 				string filename = "tmp" + to_string(c) + ".in";
 				ofstream tmpOut(filename, ios::out);
-				
-				//set printf format
-				tmpOut.setf(std::ios::fixed, std::ios::floatfield);
-				tmpOut.precision(0);
-		
 				tmpOut << CCRowSize[c] << ' ' << CCColSize[c] + 2 << endl;
 				for (unsigned i = 0; i < M; i++)
 					if (CCRowFlag[i] == c)
@@ -332,7 +327,7 @@ int Solver::Solve(Polytope *P)
 double Solver::CallBarvinok(string fileName)
 {
 
-	string cmd = barvinokdir + " < " + fileName;
+	string cmd = "./barvinok/barvinok_count < " + fileName;
 	if (system(cmd.c_str()) != 0)
 	{
 		cout << "Error: Unsuccessful call of \'barvinok_count\'" << endl;

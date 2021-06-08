@@ -1,0 +1,75 @@
+** Note: Due to size limit, this package only include binaries of IntCount, 
+Barvinok and SMTCount. Please run the scripts 'run.sh' first.
+
+
+=== Benchmarks ===
+There are 2840 random benchmarks. Benchmarks are named "n_m_l" in
+benchmarks/random/, where 
+* n is the number of variables, 
+* m is the number of linear constraints, 
+* l is the max length of each constraint (at least one with max length).
+Note: no degenerated or unbounded benchmark.
+
+Due to the size of generated CNF files. There are only SMT files in bench-
+marks. To generate CNF files for Cachet, GANAK and ApproxMC, run "dd.sh" 
+in folder "benchmarks":
+> cd benchmarks
+> sh dd.sh
+
+There are 4131 application benchmarks in SMT(LIA) language. They are in
+benchmarks/smtlia/.
+
+
+=== IntCount ===
+> ./IntCount <input_file>
+> ./IntCount ../benchmarks/random/5_1_5.in
+ 
+Input: ".in" files in benchmarks/random/
+
+Note: if IntCount returns -1, it means it is not worth to decompose and 
+suggest you directly calling barvinok. In this case, in our experimental 
+results, we added the runtime of a direct call of barvinok to the runtime 
+of IntCount.
+
+
+=== Barvinok v0.41.3 ===
+> ./barvinok_count < <input_file>
+> ./barvinok_count < ../benchmarks/random/5_1_5.in
+(Note there is a "<" before the input file.)
+
+Input: ".in" files in benchmarks/random/
+Output: Please check file "tmp.out", there is no output in stdout.
+
+
+=== Cachet v1.21 ===
+> ./cachet-wmc ../benchmarks/random_cnf/5_1_5.cnf
+
+Input: CNF files in benchmarks/random_cnf/
+
+
+=== GANAK v1.0.0 === 
+(similar with Cachet)
+
+
+=== ApproxMC v3.0.0 ===
+(similar with Cachet)
+
+
+=== SMTCount ===
+If the shared libraries of libgfortran.so not found, please install 
+'libgfortran4' first, like
+> apt-get install libgfortran4
+
+> ./SMTCount -i -w=6 -fact=1 <input_file>
+> ./SMTCount -b -w=6 -fact=1 <input_file>
+(the first command calls IntCount, the second one calls Barvinok instead)
+
+Input: SMT files in benchmarks/smtlia/
+
+
+=== Log Files ===
+For details about outputs, please check the log files in "Barvinok/run1/", 
+"IntCount/run5/", etc.
+
+
+

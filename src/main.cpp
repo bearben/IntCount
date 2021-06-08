@@ -1,9 +1,6 @@
 #include <fstream>
 #include <chrono>
 #include "solver.h"
-#include "unistd.h"
-
-#define MAX_DIRSTR_SIZE 255
 
 using namespace std;
 
@@ -19,26 +16,9 @@ int main(int argc, char **argv)
 
 	string fileName = argv[1];
   
-   	//check path  
-   	char current_absolute_path[MAX_DIRSTR_SIZE];
-	//obtain absolute path
-	int cnt = readlink("/proc/self/exe", current_absolute_path, MAX_DIRSTR_SIZE);
-	if (cnt < 0 || cnt >= MAX_DIRSTR_SIZE)
-	{
-	    cout << "error: Failed to get absolute path." << endl;
-	    exit(0);
-	}
-	for (int i = cnt; i >= 0; --i)
-	    if (current_absolute_path[i] == '/'){
-	        current_absolute_path[i] = '\0';
-	        break;
-	    }
-	string barvinokdir(current_absolute_path);
-  
     auto t1 = Clock::now();
 
 	Solver S(fileName);
-	S.barvinokdir = barvinokdir + "/barvinok/barvinok_count";
 	if (S.Solve(S.P) != 0)
 	{
 		S.totalCalls++;
@@ -60,9 +40,5 @@ int main(int argc, char **argv)
 	finalOut << S.totalN << ',';
 	finalOut << S.totalResult << ',';
 	finalOut << (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count() / 1000000000 << endl;
-	finalOut.close();
 	
-	ofstream tmpOut("tmp.out");
-	tmpOut << S.totalResult;
-	tmpOut.close();
 }

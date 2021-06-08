@@ -1,0 +1,24 @@
+; output/00000094.smt: generated with canalyze.
+; $5 Assumption: true
+(declare-const $5 Int)
+(assert (and (< (- 9223372036854775808) $5) (< $5 9223372036854775807)))
+(assert (not (= $5 0)))
+; [sym$regval:5 [field: [sym$regval:0 [var: p]$]->tag_stack]$] != NULL Assumption: true
+(assert (not (= $5 0)))
+; $3 Assumption: true
+(declare-const $3 Int)
+(assert (and (< (- 9223372036854775808) $3) (< $3 9223372036854775807)))
+(assert (not (= $3 0)))
+; [sym$regval:3 [field: [sym$regval:0 [var: p]$]->value_stack]$] != NULL Assumption: true
+(assert (not (= $3 0)))
+; $1 Assumption: true
+(declare-const $1 Int)
+(assert (and (< (- 9223372036854775808) $1) (< $1 9223372036854775807)))
+(assert (not (= $1 0)))
+; [sym$regval:1 [field: [sym$regval:0 [var: p]$]->element_stack]$] != NULL Assumption: true
+(assert (not (= $1 0)))
+; $0 Assumption: true
+(declare-const $0 Int)
+(assert (and (< (- 9223372036854775808) $0) (< $0 9223372036854775807)))
+(assert (not (= $0 0)))
+(check-sat)

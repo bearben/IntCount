@@ -1,0 +1,38 @@
+; output/00000847.smt: generated with canalyze.
+; (1(S64) < (0(S64) + $cast: long $0$)) Assumption: false
+(declare-const $0 Int)
+(assert (and (< 0 $0) (< $0 18446744073709551615)))
+(assert (not (< 1 (+ 0 $0))))
+; ($cast: int $5$ == 42(S32)) Assumption: true
+(declare-const $5 Int)
+(assert (and (< (- 128) $5) (< $5 127)))
+(assert (= $5 42))
+; ($cast: int $5$ == 47(S32)) Assumption: false
+(assert (not (= $5 47)))
+; ($cast: int $5$ == 10(S32)) Assumption: false
+(assert (not (= $5 10)))
+; ($cast: int $5$ == 13(S32)) Assumption: false
+(assert (not (= $5 13)))
+; ($cast: int $5$ == 32(S32)) Assumption: false
+(assert (not (= $5 32)))
+; $3 Assumption: true
+(declare-const $3 Int)
+(assert (and (< (- 9223372036854775808) $3) (< $3 9223372036854775807)))
+(assert (not (= $3 0)))
+; (($cast: long $4$ - 0(S64)) >= 1(S64)) Assumption: true
+(declare-const $4 Int)
+(assert (and (< 0 $4) (< $4 18446744073709551615)))
+(assert (>= (- $4 0) 1))
+; (0(S64) < (0(S64) + $cast: long $0$)) Assumption: true
+(assert (< 0 (+ 0 $0)))
+; $2 Assumption: false
+(declare-const $2 Int)
+(assert (and (< (- 2147483648) $2) (< $2 2147483647)))
+(assert (= $2 0))
+; $1 Assumption: true
+(declare-const $1 Int)
+(assert (and (< (- 9223372036854775808) $1) (< $1 9223372036854775807)))
+(assert (not (= $1 0)))
+; ($0 == 0(U64)) Assumption: false
+(assert (not (= $0 0)))
+(check-sat)

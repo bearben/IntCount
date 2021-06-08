@@ -29,7 +29,7 @@ void Polytope::dArrInit()
 				if (ColFlag[j] == true && matA[i][j] != 0) 
 					count++;
 			// score = row length / full length
-			//assert(count >= 1);
+			assert(count >= 1);
 			decisionArray[i].score = 1.5 * (double)(count - 1) / ActiveColCount;
 		}
 		else

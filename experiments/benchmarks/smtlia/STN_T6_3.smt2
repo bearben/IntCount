@@ -1,0 +1,6 @@
+(declare-fun X0 () Int)
+(declare-fun X1 () Int)
+(declare-fun X2 () Int)
+(assert (>= (- X1 X0) 0))
+(assert (<= (- X2 X1) 7))
+(check-sat)

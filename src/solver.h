@@ -8,8 +8,6 @@ class Solver
 {
 public:
 
-	std::string barvinokdir;
-
 	unsigned DEPTH_LIMIT;
 	unsigned SIZE_LIMIT;
 
@@ -34,8 +32,6 @@ private:
 
 inline Solver::Solver(std::string fileName) 
 {
-	barvinokdir = "./bin/barvinok/barvinok_count";
-
 	P = ReadFile(fileName);
 	
 	DEPTH_LIMIT = (P->N < 10) ? 1 : 4;
